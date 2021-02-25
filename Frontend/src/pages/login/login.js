@@ -10,10 +10,12 @@ const Login = ({settoken}) =>{
    
     const handleclick = async e => {
         e.preventDefault();
+     
         const token = await loginUser({
-            mail,
-            password
+            email:mail,
+            password:password
         });
+       
         settoken(token);
     }
 
@@ -22,14 +24,15 @@ const Login = ({settoken}) =>{
             <h1>Login</h1>
             
                 <label>
-                    <input type="text" onChange={e=> setMail(e.target.value)}/>
+                    <input placeholder="email" type="text" onChange={e=> setMail(e.target.value)}/>
                 </label>
                 <label>
-                    <input type="text" onChange={e=> setPassword(e.target.value)} />
+                    <input placeholder="password" type="text" onChange={e=> setPassword(e.target.value)} />
                 </label>
                 <div>
                     <button type="submit" onClick={handleclick}>Submit</button>
                 </div>
+                <h1>{mail}</h1>
             
         </div>
     )
