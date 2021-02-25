@@ -1,14 +1,13 @@
 
 import React , {useState} from 'react';
-import { UseloginUser } from '../../hooks/api';
+import { loginUser } from '../../hooks/api';
 
 
 const Login = ({settoken}) =>{
 
-    const {loginUser} = UseloginUser();
     const [mail, setMail] = useState();
     const [password, setPassword] = useState();
-    
+   
     const handleclick = async e => {
         e.preventDefault();
         const token = await loginUser({
